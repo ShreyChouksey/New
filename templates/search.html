@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}Search — Babel Image Archive{% endblock %}
+
+{% block content %}
+<section class="section">
+    <h1 class="page-title">Search the Archive</h1>
+    <p class="section-desc">Upload any image to find its exact location in the universal archive.</p>
+
+    <form action="{{ url_for('search') }}" method="post" enctype="multipart/form-data" class="upload-form" id="uploadForm">
+        <div class="upload-zone" id="dropZone">
+            <div class="upload-icon">&#x1F4F7;</div>
+            <p class="upload-text">Drag & drop an image here</p>
+            <p class="upload-subtext">or click to select a file</p>
+            <input type="file" name="image" id="imageInput" accept="image/*" class="upload-input">
+            <button type="submit" class="btn btn-primary btn-lg upload-btn" id="uploadBtn" disabled>
+                Find in Archive
+            </button>
+        </div>
+        <p class="upload-note">Supported: PNG, JPG, GIF, BMP, WebP. Max 5 MB. Image will be quantized to {{ archive_stats.resolution }} at {{ archive_stats.total_palette_colors }} colors.</p>
+    </form>
+
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+</section>
+
+{% if address %}
+<section class="section">
+    <div class="search-result">
+        <h2 class="section-title">Image Found</h2>
+
+        <div class="result-comparison">
+            <!-- Quantized Version from Archive -->
+            <div class="result-panel">
+                <h3>Archive Version ({{ archive_stats.resolution }})</h3>
+                <div class="image-frame image-frame-lg">
+                    <img src="{{ url_for('serve_image', address=address) }}"
+                         alt="Archive version" class="archive-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Address -->
+        <div class="result-address">
+            <h3>Archive Address</h3>
+            <div class="address-display address-display-lg">
+                <code class="address-full" id="resultAddress">{{ address }}</code>
+            </div>
+            <div class="result-meta">
+                <span>Address length: <strong>{{ address|length }}</strong> characters</span>
+                <span>Original file: <strong>{{ original_name }}</strong></span>
+            </div>
+            <div class="result-actions">
+                <button class="btn btn-primary" onclick="copySearchAddress()">Copy Address</button>
+                <a href="{{ url_for('browse', address=address) }}" class="btn btn-outline">Browse This Image</a>
+                <a href="{{ url_for('explore', address=address) }}" class="btn btn-outline">Explore Nearby</a>
+                <a href="{{ url_for('serve_image', address=address, scale=32) }}" class="btn btn-outline" download>Download PNG</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+const dropZone = document.getElementById('dropZone');
+const imageInput = document.getElementById('imageInput');
+const uploadBtn = document.getElementById('uploadBtn');
+const uploadForm = document.getElementById('uploadForm');
+
+// File input change
+imageInput.addEventListener('change', function() {
+    if (this.files.length > 0) {
+        uploadBtn.disabled = false;
+        dropZone.querySelector('.upload-text').textContent = this.files[0].name;
+        dropZone.querySelector('.upload-subtext').textContent =
+            (this.files[0].size / 1024).toFixed(1) + ' KB';
+        dropZone.classList.add('has-file');
+    }
+});
+
+// Click to open file picker
+dropZone.addEventListener('click', function(e) {
+    if (e.target !== uploadBtn && e.target.tagName !== 'BUTTON') {
+        imageInput.click();
+    }
+});
+
+// Drag & drop
+dropZone.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    this.classList.add('drag-over');
+});
+dropZone.addEventListener('dragleave', function() {
+    this.classList.remove('drag-over');
+});
+dropZone.addEventListener('drop', function(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+    if (e.dataTransfer.files.length > 0) {
+        imageInput.files = e.dataTransfer.files;
+        imageInput.dispatchEvent(new Event('change'));
+    }
+});
+
+function copySearchAddress() {
+    const addr = document.getElementById('resultAddress').textContent;
+    navigator.clipboard.writeText(addr).then(() => {
+        event.target.textContent = 'Copied!';
+        setTimeout(() => event.target.textContent = 'Copy Address', 1500);
+    });
+}
+</script>
+{% endblock %}

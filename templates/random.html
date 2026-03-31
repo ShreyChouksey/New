@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Random — Babel Image Archive{% endblock %}
+
+{% block content %}
+<section class="section">
+    <h1 class="page-title">Random Images</h1>
+    <p class="section-desc">
+        Each of these images was drawn at random from the archive's
+        {{ archive_stats.total_images_scientific }} possible images.
+        Most will be noise — meaningful images are vanishingly rare.
+    </p>
+
+    <div class="random-controls">
+        <button class="btn btn-primary btn-lg" id="regenerateBtn">Generate New Set</button>
+        <div class="count-control">
+            <label for="countSelect">Show:</label>
+            <select id="countSelect" class="input input-sm">
+                <option value="6" {% if count == 6 %}selected{% endif %}>6</option>
+                <option value="12" {% if count == 12 %}selected{% endif %}>12</option>
+                <option value="24" {% if count == 24 %}selected{% endif %}>24</option>
+                <option value="48" {% if count == 48 %}selected{% endif %}>48</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="imageContainer">
+    <div class="image-grid image-grid-dense">
+        {% for img in images %}
+        <a href="{{ url_for('browse', address=img.address) }}" class="image-card">
+            <div class="image-frame">
+                <img src="{{ url_for('serve_image', address=img.address) }}"
+                     alt="Random image" loading="lazy" class="archive-image">
+            </div>
+            <div class="image-meta">
+                <code class="address-text">{{ img.address_short }}</code>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('regenerateBtn').addEventListener('click', function() {
+    const count = document.getElementById('countSelect').value;
+    window.location.href = '/random?count=' + count;
+});
+
+document.getElementById('countSelect').addEventListener('change', function() {
+    window.location.href = '/random?count=' + this.value;
+});
+</script>
+{% endblock %}

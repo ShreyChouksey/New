@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Babel Universal Image Archive — Every possible image that ever was, or ever could be.">
+    <title>{% block title %}Babel Image Archive{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="{{ url_for('index') }}" class="nav-brand">
+                <span class="brand-icon">&#x2B22;</span>
+                <span class="brand-text">Babel Archive</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="{{ url_for('index') }}" {% if request.endpoint == 'index' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{{ url_for('browse_form') }}" {% if request.endpoint in ('browse_form', 'browse') %}class="active"{% endif %}>Browse</a></li>
+                <li><a href="{{ url_for('search') }}" {% if request.endpoint == 'search' %}class="active"{% endif %}>Search</a></li>
+                <li><a href="{{ url_for('random_page') }}" {% if request.endpoint == 'random_page' %}class="active"{% endif %}>Random</a></li>
+                <li><a href="{{ url_for('gallery') }}" {% if request.endpoint == 'gallery' %}class="active"{% endif %}>Gallery</a></li>
+                <li><a href="{{ url_for('stats_page') }}" {% if request.endpoint == 'stats_page' %}class="active"{% endif %}>Stats</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Babel Universal Image Archive</h4>
+                    <p class="footer-tagline">Every image that ever was, or ever could be.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Archive</h4>
+                    <p>{{ archive_stats.resolution }} &middot; {{ archive_stats.total_palette_colors }} colors</p>
+                    <p>{{ archive_stats.total_images_scientific }} images</p>
+                </div>
+                <div class="footer-section">
+                    <h4>API</h4>
+                    <p><code>/api/v1/browse/&lt;addr&gt;</code></p>
+                    <p><code>/api/v1/random</code></p>
+                    <p><code>/api/v1/search</code> (POST)</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Inspired by Jorge Luis Borges' <em>"The Library of Babel"</em> (1941)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

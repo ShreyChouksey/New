@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Browse — Babel Image Archive{% endblock %}
+
+{% block content %}
+<section class="section">
+    <h1 class="page-title">Browse the Archive</h1>
+    <p class="section-desc">Enter an address to retrieve its image from the universal archive.</p>
+
+    <form action="{{ url_for('browse_form') }}" method="get" class="browse-form" id="browseForm">
+        <div class="input-group">
+            <input type="text" name="address" id="browseAddress"
+                   value="{{ address or '' }}"
+                   placeholder="Enter a base-62 address (e.g., 5FrX9kM...)"
+                   class="input input-lg input-mono" autocomplete="off">
+            <button type="submit" class="btn btn-primary">Retrieve</button>
+            <button type="button" class="btn btn-secondary" id="browseRandom">Random</button>
+        </div>
+    </form>
+
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+</section>
+
+{% if address and not error %}
+<section class="section">
+    <div class="browse-result">
+        <!-- Image Display -->
+        <div class="image-display">
+            <div class="image-frame image-frame-lg">
+                <img src="{{ url_for('serve_image', address=address) }}"
+                     alt="Archive image at {{ address[:20] }}..."
+                     class="archive-image">
+            </div>
+        </div>
+
+        <!-- Metadata Panel -->
+        <div class="meta-panel">
+            <h3>Image Details</h3>
+
+            <div class="meta-row">
+                <span class="meta-label">Address</span>
+                <div class="address-display">
+                    <code class="address-full" id="fullAddress">{{ address }}</code>
+                    <button class="btn btn-sm btn-ghost" onclick="copyAddress()" title="Copy address">Copy</button>
+                </div>
+            </div>
+
+            <div class="meta-row">
+                <span class="meta-label">Address Length</span>
+                <span class="meta-value">{{ address|length }} characters</span>
+            </div>
+
+            <div class="meta-row">
+                <span class="meta-label">Resolution</span>
+                <span class="meta-value">{{ archive_stats.resolution }}</span>
+            </div>
+
+            <div class="meta-row">
+                <span class="meta-label">Gallery Location</span>
+                <span class="meta-value">
+                    Room {{ location.room }}, Wall {{ location.wall }},
+                    Shelf {{ location.shelf }}, Position {{ location.position }}
+                </span>
+            </div>
+
+            <!-- Actions -->
+            <div class="meta-actions">
+                <a href="{{ url_for('explore', address=address) }}" class="btn btn-outline">Explore Nearby</a>
+                <a href="{{ url_for('gallery', room=location.room, wall=location.wall) }}" class="btn btn-outline">View in Gallery</a>
+                <a href="{{ url_for('serve_image', address=address, scale=32) }}" class="btn btn-outline" download="babel_{{ address[:16] }}.png">Download PNG</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Neighbors -->
+{% if neighbors %}
+<section class="section">
+    <h2 class="section-title">Nearby Images</h2>
+    <div class="neighbor-grid">
+        {% for offset, addr in neighbors %}
+        <a href="{{ url_for('browse', address=addr) }}" class="image-card">
+            <div class="image-frame">
+                <img src="{{ url_for('serve_image', address=addr) }}"
+                     alt="Neighbor {{ offset }}" loading="lazy" class="archive-image">
+            </div>
+            <div class="image-meta">
+                <span class="offset-badge">{{ '+' if offset > 0 else '' }}{{ offset }}</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('browseForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const addr = document.getElementById('browseAddress').value.trim();
+    if (addr) window.location.href = '/browse/' + encodeURIComponent(addr);
+});
+
+document.getElementById('browseRandom').addEventListener('click', function() {
+    fetch('/api/v1/random?count=1')
+        .then(r => r.json())
+        .then(data => {
+            if (data.images && data.images.length > 0) {
+                window.location.href = '/browse/' + encodeURIComponent(data.images[0].address);
+            }
+        });
+});
+
+function copyAddress() {
+    const addr = document.getElementById('fullAddress').textContent;
+    navigator.clipboard.writeText(addr).then(() => {
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+    });
+}
+</script>
+{% endblock %}

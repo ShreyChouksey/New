@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Gallery — Room {{ room }} — Babel Image Archive{% endblock %}
+
+{% block content %}
+<section class="section">
+    <h1 class="page-title">The Gallery</h1>
+    <p class="section-desc">
+        The archive is organized into rooms, walls, and shelves &mdash;
+        an infinite library of images. Navigate the spatial hierarchy.
+    </p>
+
+    <!-- Room Navigation -->
+    <div class="gallery-nav">
+        <div class="gallery-room-nav">
+            <label>Room:</label>
+            <button class="btn btn-sm btn-ghost" onclick="goRoom({{ room - 1 }})" {% if room <= 0 %}disabled{% endif %}>&laquo; Prev</button>
+            <input type="number" id="roomInput" value="{{ room }}" min="0" class="input input-sm input-mono room-input">
+            <button class="btn btn-sm btn-ghost" onclick="goRoom({{ room + 1 }})">&raquo; Next</button>
+            <button class="btn btn-sm btn-primary" onclick="goRoom(parseInt(document.getElementById('roomInput').value))">Go</button>
+            <button class="btn btn-sm btn-secondary" onclick="goRoom(Math.floor(Math.random() * 1e15))">Random Room</button>
+        </div>
+
+        <!-- Wall Tabs -->
+        <div class="wall-tabs">
+            {% for w in range(walls_per_room) %}
+            <a href="{{ url_for('gallery', room=room, wall=w) }}"
+               class="wall-tab {% if w == wall %}active{% endif %}">
+                Wall {{ w + 1 }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Shelves -->
+<section class="section">
+    <div class="gallery-location">
+        <span class="breadcrumb">
+            Room {{ room }} &rsaquo; Wall {{ wall + 1 }} of {{ walls_per_room }}
+        </span>
+    </div>
+
+    {% for shelf_images in shelves %}
+    <div class="shelf">
+        <div class="shelf-label">Shelf {{ loop.index }}</div>
+        <div class="shelf-images">
+            {% for img in shelf_images %}
+            <a href="{{ url_for('browse', address=img.address) }}" class="shelf-image-card">
+                <div class="image-frame">
+                    <img src="{{ url_for('serve_image', address=img.address) }}"
+                         alt="Shelf image" loading="lazy" class="archive-image">
+                </div>
+                <code class="address-text">{{ img.address_short }}</code>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function goRoom(room) {
+    if (room < 0) room = 0;
+    window.location.href = '/gallery?room=' + room + '&wall={{ wall }}';
+}
+
+document.getElementById('roomInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        goRoom(parseInt(this.value) || 0);
+    }
+});
+</script>
+{% endblock %}

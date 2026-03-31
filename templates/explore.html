@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Explore — Babel Image Archive{% endblock %}
+
+{% block content %}
+<section class="section">
+    <h1 class="page-title">Explore the Archive</h1>
+    <p class="section-desc">Navigate through neighboring addresses. Click any image to re-center on it.</p>
+
+    <form class="explore-form" id="exploreForm">
+        <div class="input-group">
+            <input type="text" id="exploreAddress" value="{{ address or '' }}"
+                   placeholder="Enter an address to explore..." class="input input-lg input-mono">
+            <button type="submit" class="btn btn-primary">Explore</button>
+            <button type="button" class="btn btn-secondary" id="exploreRandom">Random</button>
+        </div>
+    </form>
+
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+</section>
+
+{% if address and not error %}
+<section class="section">
+    <div class="explore-grid">
+        {% for offset, addr in neighbors %}
+        <a href="{{ url_for('explore', address=addr) }}"
+           class="explore-card {% if offset == 0 %}explore-center{% endif %}">
+            <div class="image-frame {% if offset == 0 %}image-frame-lg{% endif %}">
+                <img src="{{ url_for('serve_image', address=addr) }}"
+                     alt="Offset {{ offset }}" loading="lazy" class="archive-image">
+            </div>
+            <div class="explore-meta">
+                {% if offset == 0 %}
+                <span class="offset-badge offset-center">CENTER</span>
+                {% else %}
+                <span class="offset-badge">{{ '+' if offset > 0 else '' }}{{ offset }}</span>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="explore-address">
+        <h3>Current Address</h3>
+        <code class="address-full" id="currentAddress">{{ address }}</code>
+        <div class="explore-actions">
+            <button class="btn btn-sm btn-ghost" onclick="copyExploreAddr()">Copy Address</button>
+            <a href="{{ url_for('browse', address=address) }}" class="btn btn-sm btn-outline">Full Details</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('exploreForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const addr = document.getElementById('exploreAddress').value.trim();
+    if (addr) window.location.href = '/explore/' + encodeURIComponent(addr);
+});
+
+document.getElementById('exploreRandom').addEventListener('click', function() {
+    fetch('/api/v1/random?count=1')
+        .then(r => r.json())
+        .then(data => {
+            if (data.images && data.images.length > 0) {
+                window.location.href = '/explore/' + encodeURIComponent(data.images[0].address);
+            }
+        });
+});
+
+function copyExploreAddr() {
+    navigator.clipboard.writeText(document.getElementById('currentAddress').textContent);
+}
+</script>
+{% endblock %}

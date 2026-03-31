@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Statistics — Babel Image Archive{% endblock %}
+
+{% block content %}
+<section class="section">
+    <h1 class="page-title">Archive Statistics</h1>
+    <p class="section-desc">The mathematical scope of the universal image archive.</p>
+</section>
+
+<section class="section">
+    <div class="stats-grid">
+        <div class="stat-block">
+            <span class="stat-block-value">{{ archive_stats.resolution }}</span>
+            <span class="stat-block-label">Image Resolution</span>
+            <span class="stat-block-detail">{{ archive_stats.total_pixels }} pixels per image</span>
+        </div>
+
+        <div class="stat-block">
+            <span class="stat-block-value">{{ archive_stats.total_palette_colors }}</span>
+            <span class="stat-block-label">Unique Colors</span>
+            <span class="stat-block-detail">{{ archive_stats.colors_per_channel }} levels per channel ({{ archive_stats.color_mode }})</span>
+        </div>
+
+        <div class="stat-block highlight">
+            <span class="stat-block-value">{{ archive_stats.total_images_scientific }}</span>
+            <span class="stat-block-label">Total Possible Images</span>
+            <span class="stat-block-detail">{{ archive_stats.total_images_digits }} digit number</span>
+        </div>
+
+        <div class="stat-block">
+            <span class="stat-block-value">{{ archive_stats.address_space_bits }}</span>
+            <span class="stat-block-label">Address Space (bits)</span>
+            <span class="stat-block-detail">Max address length: ~{{ archive_stats.max_address_length }} characters</span>
+        </div>
+
+        <div class="stat-block">
+            <span class="stat-block-value">{{ archive_stats.shuffle_mode }}</span>
+            <span class="stat-block-label">Shuffle Algorithm</span>
+            <span class="stat-block-detail">Key: "{{ archive_stats.key }}"</span>
+        </div>
+
+        <div class="stat-block">
+            <span class="stat-block-value">{{ archive_stats.total_gallery_rooms }}</span>
+            <span class="stat-block-label">Gallery Rooms</span>
+            <span class="stat-block-detail">{{ archive_stats.gallery_walls_per_room }} walls &times; {{ archive_stats.gallery_shelves_per_wall }} shelves &times; {{ archive_stats.gallery_images_per_shelf }} images</span>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Perspective</h2>
+    <div class="perspective-cards">
+        <div class="perspective-card">
+            <h3>The Observable Universe</h3>
+            <p>Contains roughly 10<sup>80</sup> atoms. This archive contains 10<sup>{{ archive_stats.total_images_digits - 1 }}</sup> images &mdash;
+            a number so large that the number of atoms in the universe is essentially zero by comparison.</p>
+        </div>
+        <div class="perspective-card">
+            <h3>Every Image Ever</h3>
+            <p>Every photograph ever taken, every painting ever painted, every frame of every film &mdash; they all exist
+            somewhere in this archive, at their {{ archive_stats.resolution }} quantized version. So does your face,
+            and every possible variation of it.</p>
+        </div>
+        <div class="perspective-card">
+            <h3>Mostly Noise</h3>
+            <p>The overwhelming majority of images in the archive are indistinguishable from random noise.
+            Finding a meaningful image by random browsing is essentially impossible &mdash; which is exactly
+            what makes the search function so powerful.</p>
+        </div>
+        <div class="perspective-card">
+            <h3>Nothing Is Stored</h3>
+            <p>No images are stored anywhere. The entire archive is a mathematical function &mdash; a reversible
+            mapping between addresses and pixel data. The archive takes zero storage space yet contains everything.</p>
+        </div>
+    </div>
+</section>
+
+<!-- API Reference -->
+<section class="section">
+    <h2 class="section-title">REST API</h2>
+    <div class="api-reference">
+        <div class="api-endpoint">
+            <code class="api-method get">GET</code>
+            <code class="api-path">/api/v1/browse/&lt;address&gt;</code>
+            <p>Retrieve an image by address. Returns JSON with base64 image and metadata.</p>
+        </div>
+        <div class="api-endpoint">
+            <code class="api-method post">POST</code>
+            <code class="api-path">/api/v1/search</code>
+            <p>Upload an image (multipart form) to find its archive address.</p>
+        </div>
+        <div class="api-endpoint">
+            <code class="api-method get">GET</code>
+            <code class="api-path">/api/v1/random?count=N</code>
+            <p>Generate N random images with addresses and base64 data.</p>
+        </div>
+        <div class="api-endpoint">
+            <code class="api-method get">GET</code>
+            <code class="api-path">/api/v1/stats</code>
+            <p>Archive configuration and statistics as JSON.</p>
+        </div>
+        <div class="api-endpoint">
+            <code class="api-method get">GET</code>
+            <code class="api-path">/api/v1/gallery/&lt;room&gt;/&lt;wall&gt;/&lt;shelf&gt;</code>
+            <p>Get image addresses for a specific gallery shelf.</p>
+        </div>
+        <div class="api-endpoint">
+            <code class="api-method get">GET</code>
+            <code class="api-path">/api/v1/explore/&lt;address&gt;</code>
+            <p>Get neighboring addresses around a center address.</p>
+        </div>
+        <div class="api-endpoint">
+            <code class="api-method get">GET</code>
+            <code class="api-path">/image/&lt;address&gt;.png?scale=N</code>
+            <p>Raw PNG image served directly. Immutable cache headers. Use in &lt;img&gt; tags.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}500 — Server Error{% endblock %}
+{% block content %}
+<section class="section error-page">
+    <h1 class="error-code">500</h1>
+    <p class="error-message">Something went wrong in the archive.</p>
+    <p class="error-detail">Even an infinite library has its limits. Please try again.</p>
+    <div class="error-actions">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Return Home</a>
+    </div>
+</section>
+{% endblock %}
