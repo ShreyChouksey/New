@@ -8,17 +8,18 @@ MAPAE is a lawful, open research experiment involving **1,000,000 public Bitcoin
 
 ## Critical notice
 
-This publication contains **public Bitcoin addresses only**. It contains no private keys, WIFs, seeds, mnemonics, entropy source, recovery material, extended private keys, or signing secrets.
+This publication contains **public Bitcoin addresses only**. It contains no private keys, WIFs, seeds, mnemonics, entropy source, recovery material, extended private keys, signing secrets, or equivalent confidential material.
 
 Do not send funds unless you independently understand and accept the risks. The initial publication treats the addresses as unfunded public research targets.
 
-## Public records
+## Canonical public records
 
-- **Launch pull request:** https://github.com/ShreyChouksey/New/pull/11
-- **Tier Ω perpetual challenge issue:** https://github.com/ShreyChouksey/New/issues/14
+- **Long-term challenge and reporting issue:** https://github.com/ShreyChouksey/New/issues/10
+- **Publication pull request:** https://github.com/ShreyChouksey/New/pull/11
 - **Dedicated public branch:** `mapae-v1-publication`
+- **Structured public project directory:** `MAPAE/`
 
-The issue embeds the complete Tier Ω set directly in its body. The branch holds the structured project record, address files, verification summary and commitments.
+Issue #10 embeds the complete Tier Ω set directly in its body. The branch contains the structured project record, address files, challenge rules, project charter, verification summary, and corpus commitments.
 
 ## Canonical corpus commitment
 
@@ -48,25 +49,36 @@ b1bd11238815f4f86aa3ba3cee7a5daaa52a6f7578531b805be2a5272bd73abd
 
 These checks do not claim exhaustive verification of every address against all historical blockchain activity.
 
-## Live public exposure — Stage 1
+## Live public exposure — GitHub Stage 1
 
-Exactly **200 individual addresses** are presently published in human-readable form in this repository:
+Exactly **1,100 distinct individual addresses** are presently published in human-readable form in this public GitHub branch:
 
 - `tier-omega-100.txt` — 100 deterministic Tier Ω flagship candidates
-- `tier-a-public/tier-a-0001-0100.txt` — the first 100 deterministic Tier A candidates
+- `tier-a-public/tier-a-0001-0100.txt`
+- `tier-a-public/tier-a-0101-0200.txt`
+- `tier-a-public/tier-a-0201-0300.txt`
+- `tier-a-public/tier-a-0301-0400.txt`
+- `tier-a-public/tier-a-0401-0500.txt`
+- `tier-a-public/tier-a-0501-0600.txt`
+- `tier-a-public/tier-a-0601-0700.txt`
+- `tier-a-public/tier-a-0701-0800.txt`
+- `tier-a-public/tier-a-0801-0900.txt`
+- `tier-a-public/tier-a-0901-1000.txt`
 
-The 100 Tier Ω addresses are additionally embedded in the public challenge issue, creating a second independently indexed presentation of that flagship cohort.
+The ten Tier-A files are non-overlapping and contain 100 addresses each. The 100 Tier Ω addresses are additionally embedded in issue #10, creating a second independently indexed presentation of the flagship cohort.
 
 Additional files:
 
 - `verification-summary.json` — machine-readable validation summary
 - `PART_SHA256SUMS` — commitments for ten prepared 100,000-address canonical corpus parts
+- `CHALLENGE_RULES.md` — permitted and prohibited activity
+- `PROJECT_CHARTER.md` — governing research objective
 
-The complete one-million-address corpus is cryptographically fixed by the canonical SHA-256 above. The full publication package has been prepared separately for large-file research, archival, and dataset hosts. This record deliberately distinguishes the fixed corpus from the smaller cohort that is already publicly visible here.
+The complete one-million-address corpus is cryptographically fixed by the canonical SHA-256 above. A compressed full-corpus artifact and complete public publication package have been prepared separately for a bulk-capable public archive or dataset host. This record deliberately distinguishes the fixed one-million-address corpus from the 1,100-address cohort already directly visible on GitHub.
 
 ## Open challenge
 
-Researchers, cryptographers, developers, automated scanners, and future systems are invited to examine the exposed addresses and corpus commitment for:
+Researchers, cryptographers, developers, automated scanners, blockchain analysts, and future systems are invited to examine the exposed addresses and corpus commitment for:
 
 - duplicates or malformed encodings;
 - checksum or witness-program defects;
@@ -76,7 +88,7 @@ Researchers, cryptographers, developers, automated scanners, and future systems 
 - weaknesses traceable to the generation process;
 - or a demonstrable method of controlling an address without being supplied its corresponding private key.
 
-No unauthorized access, malware, phishing, deception, spam, circumvention, fabricated commerce, or attacks against unrelated third parties are part of this experiment.
+No unauthorized access, malware, phishing, deception, spam, circumvention, fabricated commerce, denial-of-service activity, or attacks against unrelated third parties are part of this experiment.
 
 ## Governing rule
 
@@ -84,8 +96,8 @@ No unauthorized access, malware, phishing, deception, spam, circumvention, fabri
 
 ## Reporting
 
-Open an issue in this repository with reproducible evidence, exact address values or corpus row references, commands or code used, and hashes of derived artifacts. Do not publicly post suspected private-key material.
+Use issue #10 for the canonical reporting thread, or open a separate issue for a substantial finding. Include reproducible evidence, exact address values or corpus row references, commands or code used, assumptions, impact, limitations, and hashes of derived artifacts. Do not publicly post suspected private-key material.
 
 ## Rights and attribution
 
-Dataset and documentation © 2026 Shrey Chouksey. Public scrutiny, verification, citation, and responsible research analysis are expressly invited. A formal redistribution license has not yet been attached; publication of public addresses does not publish or waive rights in any private-key material.
+Dataset and documentation © 2026 Shrey Chouksey. Public scrutiny, verification, citation, indexing, and responsible research analysis are expressly invited. A formal redistribution license has not yet been attached; publication of public addresses does not publish or waive rights in any private-key material.
