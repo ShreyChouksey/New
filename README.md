@@ -26,7 +26,7 @@ At default settings (16x16 resolution, 512 colors), the archive contains **~3.7 
 - **Color Modes** — RGB, Grayscale, Black & White
 - **Shuffle Modes** — XOR cipher (fast) or Feistel FPE (cryptographic permutation)
 - **Immutable Caching** — Deterministic images with aggressive cache headers
-- **Responsive** — Mobile-friendly design
+- **Responsive** — Mobile-friendly
 - **Production Ready** — WSGI entry point, configurable via environment variables
 
 ## Installation
@@ -79,8 +79,8 @@ Set via environment variables or `config.py`:
 | `BABEL_HEIGHT` | Image height in pixels | 16 |
 | `BABEL_COLORS` | Colors per RGB channel | 8 |
 | `BABEL_KEY` | Archive encryption key | `babel` |
-| `BABEL_COLOR_MODE` | `rgb`, `grayscale`, or `bw` | `rgb` |
-| `BABEL_SHUFFLE_MODE` | `xor` or `feistel` | `xor` |
+| `BABEL_COLOR_MODE` | `rgb`, `grayscale`, or `bw` |
+| `BABEL_SHUFFLE_MODE` | `xor` or `feistel` |
 | `BABEL_SCALE` | Default display scale factor | 16 |
 | `SECRET_KEY` | Flask secret key | (set in production) |
 
@@ -107,3 +107,17 @@ static/
   css/style.css          # Commercial dark theme stylesheet
   js/app.js              # Client-side interactions
 ```
+
+---
+
+## Open Bitcoin research challenge: MAPAE
+
+This repository also hosts the **Million-Address Perpetual Adversarial Exposure Experiment**, a lawful public challenge involving one million committed Bitcoin `bc1q...` addresses and an initial public address cohort.
+
+- [MAPAE research record and challenge rules](MAPAE/README.md)
+- [Tier Ω flagship public addresses](MAPAE/tier-omega-100.txt)
+- [Tier A public addresses 1–100](MAPAE/tier-a-public/tier-a-0001-0100.txt)
+- [Tier A public addresses 101–200](MAPAE/tier-a-public/tier-a-0101-0200.txt)
+- Canonical one-million-address SHA-256: `5bb9320bc93f07e3129cb6ef5aee4da2c245e0ca11279d4963244bead79a90df`
+
+The MAPAE publication contains public Bitcoin addresses only. It contains no private keys, seeds, mnemonics, WIFs, or recovery secrets.
