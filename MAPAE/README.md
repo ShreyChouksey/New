@@ -14,12 +14,12 @@ Do not send funds unless you independently understand and accept the risks. The 
 
 ## Canonical public records
 
-- **Long-term challenge and reporting issue:** https://github.com/ShreyChouksey/New/issues/10
+- **Long-term challenge and reporting issue:** https://github.com/ShreyChouksey/New/issues/15
 - **Publication pull request:** https://github.com/ShreyChouksey/New/pull/11
 - **Dedicated public branch:** `mapae-v1-publication`
 - **Structured public project directory:** `MAPAE/`
 
-Issue #10 embeds the complete Tier Ω set directly in its body. The branch contains the structured project record, address files, challenge rules, project charter, verification summary, and corpus commitments.
+Issue #15 is the canonical reporting and discussion surface. The branch contains the structured project record, address files, challenge rules, project charter, verification summary, and corpus commitments.
 
 ## Canonical corpus commitment
 
@@ -65,7 +65,7 @@ Exactly **1,100 distinct individual addresses** are presently published in human
 - `tier-a-public/tier-a-0801-0900.txt`
 - `tier-a-public/tier-a-0901-1000.txt`
 
-The ten Tier-A files are non-overlapping and contain 100 addresses each. The 100 Tier Ω addresses are additionally embedded in issue #10, creating a second independently indexed presentation of the flagship cohort.
+The ten Tier-A files are non-overlapping and contain 100 addresses each. The Tier Ω cohort and an initial Tier A cohort are also embedded in issue #15, creating an additional independently indexed presentation.
 
 Additional files:
 
@@ -96,7 +96,7 @@ No unauthorized access, malware, phishing, deception, spam, circumvention, fabri
 
 ## Reporting
 
-Use issue #10 for the canonical reporting thread, or open a separate issue for a substantial finding. Include reproducible evidence, exact address values or corpus row references, commands or code used, assumptions, impact, limitations, and hashes of derived artifacts. Do not publicly post suspected private-key material.
+Use issue #15 for the canonical reporting thread, or open a separate issue for a substantial finding. Include reproducible evidence, exact address values or corpus row references, commands or code used, assumptions, impact, limitations, and hashes of derived artifacts. Do not publicly post suspected private-key material.
 
 ## Rights and attribution
 
