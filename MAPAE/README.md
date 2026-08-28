@@ -58,10 +58,7 @@ Exactly **1,100 individual addresses** are now published in plain text on the re
 
 The ten Tier-A files form one contiguous, non-overlapping 1,000-address cohort. The Tier Ω file is a separate 100-address flagship cohort.
 
-Public challenge and reporting records:
-
-- Tier Ω perpetual challenge: `https://github.com/ShreyChouksey/New/issues/14`
-- Expanded launch and reporting thread: `https://github.com/ShreyChouksey/New/issues/15`
+**Canonical public challenge and reporting thread:** https://github.com/ShreyChouksey/New/issues/15
 
 Additional files:
 
@@ -92,7 +89,7 @@ No unauthorized access, malware, phishing, deception, spam, circumvention, fabri
 
 ## Reporting
 
-Open an issue in this repository with reproducible evidence, exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
+Use issue #15 for reproducible findings. Include exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
 
 ## Rights and attribution
 
