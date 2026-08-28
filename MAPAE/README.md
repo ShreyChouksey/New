@@ -12,6 +12,14 @@ This publication contains **public Bitcoin addresses only**. It contains no priv
 
 Do not send funds unless you independently understand and accept the risks. The initial publication treats the addresses as unfunded public research targets.
 
+## Public records
+
+- **Launch pull request:** https://github.com/ShreyChouksey/New/pull/11
+- **Tier Ω perpetual challenge issue:** https://github.com/ShreyChouksey/New/issues/14
+- **Dedicated public branch:** `mapae-v1-publication`
+
+The issue embeds the complete Tier Ω set directly in its body. The branch holds the structured project record, address files, verification summary and commitments.
+
 ## Canonical corpus commitment
 
 - Records: **1,000,000**
@@ -46,6 +54,8 @@ Exactly **200 individual addresses** are presently published in human-readable f
 
 - `tier-omega-100.txt` — 100 deterministic Tier Ω flagship candidates
 - `tier-a-public/tier-a-0001-0100.txt` — the first 100 deterministic Tier A candidates
+
+The 100 Tier Ω addresses are additionally embedded in the public challenge issue, creating a second independently indexed presentation of that flagship cohort.
 
 Additional files:
 
