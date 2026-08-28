@@ -112,12 +112,14 @@ static/
 
 ## Open Bitcoin research challenge: MAPAE
 
-This repository also hosts the **Million-Address Perpetual Adversarial Exposure Experiment**, a lawful public challenge involving one million committed Bitcoin `bc1q...` addresses and an initial public address cohort.
+This repository also hosts the **Million-Address Perpetual Adversarial Exposure Experiment**, a lawful public challenge involving a cryptographically committed corpus of one million Bitcoin `bc1q...` addresses.
+
+**Current directly readable public cohort: 1,100 unique addresses**
 
 - [MAPAE research record and challenge rules](MAPAE/README.md)
-- [Tier Ω flagship public addresses](MAPAE/tier-omega-100.txt)
-- [Tier A public addresses 1–100](MAPAE/tier-a-public/tier-a-0001-0100.txt)
-- [Tier A public addresses 101–200](MAPAE/tier-a-public/tier-a-0101-0200.txt)
+- [Tier Ω — 100 flagship public addresses](MAPAE/tier-omega-100.txt)
+- [Tier A — 1,000 public addresses in ten plain-text files](MAPAE/tier-a-public/)
+- [Canonical reporting and research thread](../../issues/15)
 - Canonical one-million-address SHA-256: `5bb9320bc93f07e3129cb6ef5aee4da2c245e0ca11279d4963244bead79a90df`
 
-The MAPAE publication contains public Bitcoin addresses only. It contains no private keys, seeds, mnemonics, WIFs, or recovery secrets.
+The MAPAE publication contains public Bitcoin addresses only. It contains no private keys, seeds, mnemonics, WIFs, entropy material, signing secrets, or recovery secrets.
