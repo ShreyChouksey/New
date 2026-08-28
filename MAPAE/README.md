@@ -40,14 +40,13 @@ b1bd11238815f4f86aa3ba3cee7a5daaa52a6f7578531b805be2a5272bd73abd
 
 These checks do not claim exhaustive verification of every address against all historical blockchain activity.
 
-## Public exposure files
+## Initial public exposure files
 
 - `tier-omega-100.txt` — 100 deterministic flagship candidates for repeated lawful exposure
-- `tier-a-010000/` — public heavy-exposure cohort, split into 1,000-address files
 - `verification-summary.json` — machine-readable validation summary
-- `PART_SHA256SUMS` — commitments for the ten 100,000-address canonical corpus parts prepared for larger-file mirrors
+- `PART_SHA256SUMS` — commitments for ten prepared 100,000-address canonical corpus parts
 
-The full million-address corpus is identified by the canonical SHA-256 above. Additional complete mirrors may be added as suitable large-file research and archival destinations become connected.
+The 100 Tier-Ω addresses are the first address-level public release. The complete million-address corpus is fixed by the canonical SHA-256 above and is packaged for subsequent large-file research, archival, and dataset hosts.
 
 ## Open challenge
 
