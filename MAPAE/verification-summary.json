@@ -1,0 +1,21 @@
+{
+  "bech32_program_symbol_chi_square_p_value": 0.6627743004590829,
+  "bech32_program_symbol_entropy_bits_per_symbol": 4.999999387063229,
+  "decoded_byte_chi_square_p_value": 0.4006988536959899,
+  "decoded_witness_program_bits": 160000000,
+  "duplicate_address_extra_rows": 0,
+  "duplicate_witness_program_extra_rows": 0,
+  "invalid_addresses": 0,
+  "monobit_p_value": 0.9654438945120356,
+  "normalized_file_size_bytes": 43000000,
+  "one_bit_fraction": 0.5000017125,
+  "one_bits": 80000274,
+  "original_file_size_bytes": 42999999,
+  "records": 1000000,
+  "sha256_normalized_lf_terminated": "5bb9320bc93f07e3129cb6ef5aee4da2c245e0ca11279d4963244bead79a90df",
+  "sha256_original_exact_bytes": "b1bd11238815f4f86aa3ba3cee7a5daaa52a6f7578531b805be2a5272bd73abd",
+  "unique_address_strings": 1000000,
+  "unique_witness_programs": 1000000,
+  "valid_addresses": 1000000,
+  "zero_bits": 79999726
+}
