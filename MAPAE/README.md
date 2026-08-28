@@ -4,13 +4,13 @@
 **Canonical date:** 2026-08-28  
 **Operator:** Shrey Chouksey
 
-MAPAE is a lawful, open research experiment involving **1,000,000 public Bitcoin mainnet Bech32 (`bc1q...`) addresses**. Its purpose is long-lived adversarial scrutiny rather than privacy.
+MAPAE is a lawful, open research experiment involving a fixed corpus of **1,000,000 Bitcoin mainnet native-SegWit (`bc1q...`) public addresses**. Its purpose is long-lived adversarial scrutiny rather than privacy.
 
 ## Critical notice
 
-This publication contains **public Bitcoin addresses only**. It contains no private keys, WIFs, seeds, mnemonics, entropy source, recovery material, extended private keys, or signing secrets.
+This publication contains **public Bitcoin addresses only**. It contains no private keys, WIFs, seeds, mnemonics, entropy source, recovery material, extended private keys, signing secrets, or equivalent confidential material.
 
-Do not send funds unless you independently understand and accept the risks. The initial publication treats the addresses as unfunded public research targets.
+Do not send funds unless you independently understand and accept the risks. Publication does not imply funding.
 
 ## Canonical corpus commitment
 
@@ -42,32 +42,49 @@ These checks do not claim exhaustive verification of every address against all h
 
 ## Live public exposure — Stage 1
 
-Exactly **300 individual addresses** are presently published in human-readable form on the repository's public default branch:
+Exactly **1,100 individual addresses** are now published in plain text on the repository's public default branch:
 
 - `tier-omega-100.txt` — 100 deterministic Tier Ω flagship candidates
-- `tier-a-public/tier-a-0001-0100.txt` — the first 100 deterministic Tier A candidates
-- `tier-a-public/tier-a-0101-0200.txt` — the next 100 deterministic Tier A candidates
+- `tier-a-public/tier-a-0001-0100.txt`
+- `tier-a-public/tier-a-0101-0200.txt`
+- `tier-a-public/tier-a-0201-0300.txt`
+- `tier-a-public/tier-a-0301-0400.txt`
+- `tier-a-public/tier-a-0401-0500.txt`
+- `tier-a-public/tier-a-0501-0600.txt`
+- `tier-a-public/tier-a-0601-0700.txt`
+- `tier-a-public/tier-a-0701-0800.txt`
+- `tier-a-public/tier-a-0801-0900.txt`
+- `tier-a-public/tier-a-0901-1000.txt`
+
+The ten Tier-A files form one contiguous, non-overlapping 1,000-address cohort. The Tier Ω file is a separate 100-address flagship cohort.
+
+Public challenge and reporting records:
+
+- Tier Ω perpetual challenge: `https://github.com/ShreyChouksey/New/issues/14`
+- Expanded launch and reporting thread: `https://github.com/ShreyChouksey/New/issues/15`
 
 Additional files:
 
 - `verification-summary.json` — machine-readable validation summary
 - `PART_SHA256SUMS` — commitments for ten prepared 100,000-address canonical corpus parts
+- `CHALLENGE_RULES.md` — permitted and prohibited activity
+- `PROJECT_CHARTER.md` — governing research objective
 
-The complete one-million-address corpus is cryptographically fixed by the canonical SHA-256 above. The full publication package has been prepared separately for large-file research, archival, and dataset hosts. This record deliberately distinguishes the fixed corpus from the smaller cohort that is already publicly visible here.
+The complete one-million-address corpus is cryptographically fixed by the canonical SHA-256 above. The full publication package has been prepared separately for bulk-capable research, archival and dataset hosts. This record deliberately distinguishes the fixed corpus from the smaller cohort already visible here.
 
 ## Open challenge
 
-Researchers, cryptographers, developers, automated scanners, and future systems are invited to examine the exposed addresses and corpus commitment for:
+Researchers, cryptographers, developers, automated scanners and future systems are invited to examine the exposed addresses and corpus commitment for:
 
 - duplicates or malformed encodings;
 - checksum or witness-program defects;
 - statistical or structural anomalies;
-- correlations, derivation patterns, or predictable adjacent outputs;
+- correlations, derivation patterns or predictable adjacent outputs;
 - prior public use or unexpected reuse;
 - weaknesses traceable to the generation process;
 - or a demonstrable method of controlling an address without being supplied its corresponding private key.
 
-No unauthorized access, malware, phishing, deception, spam, circumvention, fabricated commerce, or attacks against unrelated third parties are part of this experiment.
+No unauthorized access, malware, phishing, deception, spam, circumvention, fabricated commerce, denial-of-service activity or attacks against unrelated third parties are part of this experiment.
 
 ## Governing rule
 
@@ -75,8 +92,8 @@ No unauthorized access, malware, phishing, deception, spam, circumvention, fabri
 
 ## Reporting
 
-Open an issue in this repository with reproducible evidence, exact address values or corpus row references, commands or code used, and hashes of derived artifacts. Do not publicly post suspected private-key material.
+Open an issue in this repository with reproducible evidence, exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
 
 ## Rights and attribution
 
-Dataset and documentation © 2026 Shrey Chouksey. Public scrutiny, verification, citation, and responsible research analysis are expressly invited. A formal redistribution license has not yet been attached; publication of public addresses does not publish or waive rights in any private-key material.
+Dataset and documentation © 2026 Shrey Chouksey. Public scrutiny, verification, citation, indexing and responsible research analysis are expressly invited. A formal redistribution license has not yet been attached; publication of public addresses does not publish or waive rights in any private-key material.
