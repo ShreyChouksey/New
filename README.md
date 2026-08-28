@@ -26,7 +26,7 @@ At default settings (16x16 resolution, 512 colors), the archive contains **~3.7 
 - **Color Modes** — RGB, Grayscale, Black & White
 - **Shuffle Modes** — XOR cipher (fast) or Feistel FPE (cryptographic permutation)
 - **Immutable Caching** — Deterministic images with aggressive cache headers
-- **Responsive** — Mobile-friendly design
+- **Responsive** — Mobile-friendly
 - **Production Ready** — WSGI entry point, configurable via environment variables
 
 ## Installation
@@ -97,7 +97,7 @@ templates/
   base.html              # Base layout (dark theme, navigation)
   index.html             # Landing page with hero section
   browse.html            # Browse by address
-  search.html            # Upload & search
+  search.html             # Upload & search
   random.html            # Random image generation
   gallery.html           # Room/wall/shelf navigation
   explore.html           # Spatial exploration
@@ -107,3 +107,16 @@ static/
   css/style.css          # Commercial dark theme stylesheet
   js/app.js              # Client-side interactions
 ```
+
+---
+
+## Open Bitcoin research challenge: MAPAE
+
+This repository also hosts the **Million-Address Perpetual Adversarial Exposure Experiment**, a lawful public challenge involving one million committed Bitcoin `bc1q...` addresses and an initial public address cohort.
+
+- [MAPAE research record and challenge rules](MAPAE/README.md)
+- [Tier Ω flagship public addresses](MAPAE/tier-omega-100.txt)
+- [Initial Tier A public addresses](MAPAE/tier-a-public/tier-a-0001-0100.txt)
+- Canonical one-million-address SHA-256: `5bb9320bc93f07e3129cb6ef5aee4da2c245e0ca11279d4963244bead79a90df`
+
+The MAPAE publication contains public Bitcoin addresses only. It contains no private keys, seeds, mnemonics, WIFs, or recovery secrets.
