@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0-pilot",
+  "status_utc": "2026-08-29T14:45:00Z",
+  "canonical_registration_issue": "https://github.com/ShreyChouksey/New/issues/20",
+  "pilot_shards_total": 100,
+  "addresses_per_shard": 100,
+  "operator_reference_shards_public": 1,
+  "operator_reference_addresses_public": 100,
+  "independent_hosts_verified": 0,
+  "independent_shards_verified": 0,
+  "pilot_shards_available_for_independent_assignment": 99,
+  "pilot_addresses_available_for_independent_assignment": 9900,
+  "full_network_shards_planned": 9989,
+  "full_network_addresses_partitioned": 998900,
+  "mapae_unique_addresses_directly_public_after_reference_shard": 1200,
+  "mapae_addresses_awaiting_first_direct_publication": 998800,
+  "reference_shard_id": "MAPAE-HAS-00001",
+  "reference_shard_sha256": "f6c97c6efc2145bd6db56e783e4efb8c6b624cb5cd88407fcc0cdd7bb16e8f50",
+  "reference_shard_url": "https://raw.githubusercontent.com/ShreyChouksey/New/claude/babel-image-archive-generator-mf9Gy/MAPAE/host-a-shard/reference-host/MAPAE-HAS-00001.txt",
+  "note": "The reference host proves the workflow but is controlled by the MAPAE operator and is not counted as an independent host."
+}
