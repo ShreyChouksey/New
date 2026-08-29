@@ -40,9 +40,11 @@ b1bd11238815f4f86aa3ba3cee7a5daaa52a6f7578531b805be2a5272bd73abd
 
 These checks do not claim exhaustive verification of every address against all historical blockchain activity.
 
-## Live public exposure — Stage 1
+## Live public exposure
 
-Exactly **1,100 individual addresses** are now published in plain text on the repository's public default branch:
+Exactly **1,200 unique addresses** are now directly published in plain text on the repository's public default branch:
+
+### Stage 1 — 1,100 addresses
 
 - `tier-omega-100.txt` — 100 deterministic Tier Ω flagship candidates
 - `tier-a-public/tier-a-0001-0100.txt`
@@ -57,6 +59,29 @@ Exactly **1,100 individual addresses** are now published in plain text on the re
 - `tier-a-public/tier-a-0901-1000.txt`
 
 The ten Tier-A files form one contiguous, non-overlapping 1,000-address cohort. The Tier Ω file is a separate 100-address flagship cohort.
+
+### Host-a-Shard canary — 100 additional addresses
+
+- `host-a-shard/reference-host/MAPAE-HAS-00001.txt` — the first 100-address shard from the remaining 998,900-address pool
+- Exact shard SHA-256: `f6c97c6efc2145bd6db56e783e4efb8c6b624cb5cd88407fcc0cdd7bb16e8f50`
+- Status: operator-controlled public reference host; functional workflow proof, not an independent host
+
+## Host-a-Shard Network — pilot opened
+
+The permission-based distribution process is now active:
+
+- Full remaining pool partitioned: **998,900 addresses**
+- Deterministic shard count: **9,989**
+- Addresses per shard: **100**
+- Pilot pool: **100 shards / 10,000 addresses**
+- Wave 1: **10 shards / 1,000 addresses**
+- Public host protocol: [`host-a-shard/README.md`](host-a-shard/README.md)
+- Pilot manifest: [`host-a-shard/PILOT_MANIFEST_100.csv`](host-a-shard/PILOT_MANIFEST_100.csv)
+- Wave-1 manifest: [`host-a-shard/WAVE_1_MANIFEST_10.csv`](host-a-shard/WAVE_1_MANIFEST_10.csv)
+- Public registry: [`host-a-shard/HOST_REGISTRY.csv`](host-a-shard/HOST_REGISTRY.csv)
+- Volunteer registration and verified-host queue: https://github.com/ShreyChouksey/New/issues/19
+
+An address shard counts as independently exposed only after an authorized external host opts in, proves control of its destination, publishes the exact shard, and passes the public line-count and SHA-256 verification procedure.
 
 **Canonical public challenge and reporting thread:** https://github.com/ShreyChouksey/New/issues/15
 
@@ -89,7 +114,7 @@ No unauthorized access, malware, phishing, deception, spam, circumvention, fabri
 
 ## Reporting
 
-Use issue #15 for reproducible findings. Include exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
+Use issue #15 for reproducible findings. Use issue #19 to volunteer a host destination. Include exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
 
 ## Rights and attribution
 
