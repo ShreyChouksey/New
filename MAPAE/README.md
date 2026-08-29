@@ -79,7 +79,7 @@ The permission-based distribution process is now active:
 - Pilot manifest: [`host-a-shard/PILOT_MANIFEST_100.csv`](host-a-shard/PILOT_MANIFEST_100.csv)
 - Wave-1 manifest: [`host-a-shard/WAVE_1_MANIFEST_10.csv`](host-a-shard/WAVE_1_MANIFEST_10.csv)
 - Public registry: [`host-a-shard/HOST_REGISTRY.csv`](host-a-shard/HOST_REGISTRY.csv)
-- Volunteer registration and verified-host queue: https://github.com/ShreyChouksey/New/issues/19
+- Volunteer registration and verified-host queue: https://github.com/ShreyChouksey/New/issues/20
 
 An address shard counts as independently exposed only after an authorized external host opts in, proves control of its destination, publishes the exact shard, and passes the public line-count and SHA-256 verification procedure.
 
@@ -114,7 +114,7 @@ No unauthorized access, malware, phishing, deception, spam, circumvention, fabri
 
 ## Reporting
 
-Use issue #15 for reproducible findings. Use issue #19 to volunteer a host destination. Include exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
+Use issue #15 for reproducible findings. Use issue #20 to volunteer a host destination. Include exact address values or corpus-row references, commands or code used and hashes of derived artifacts. Do not publicly post suspected private-key material.
 
 ## Rights and attribution
 
