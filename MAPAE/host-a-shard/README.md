@@ -48,7 +48,10 @@ A proposed host qualifies when all of the following are true:
 
 ## Registration
 
-Apply in the public **MAPAE Host-a-Shard registration issue**. Provide:
+Canonical registration and public-registry desk: **GitHub issue #20**  
+`https://github.com/ShreyChouksey/New/issues/20`
+
+Apply there using the following form:
 
 ```text
 Host name:
