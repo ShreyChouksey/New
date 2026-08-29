@@ -1,12 +1,14 @@
 {
   "version": "1.0.0-pilot",
-  "generated_utc": "2026-08-29T14:34:53+00:00",
+  "generated_utc": "2026-08-29T14:43:44+00:00",
   "canonical_corpus_sha256": "5bb9320bc93f07e3129cb6ef5aee4da2c245e0ca11279d4963244bead79a90df",
   "already_exposed_addresses_excluded": 1100,
   "remaining_addresses_partitioned": 998900,
   "shard_count": 9989,
   "addresses_per_shard": 100,
-  "full_manifest_sha256": "a64060fe333c0a0edb75afde7ef9c46e377bfd624617080597cb1cec0cbe13fb",
+  "full_manifest_sha256": "05b6a05fc86fdbc506c776fcd93b32da11dd318e31357b0d16cb7e90881c4d22",
   "pilot_manifest_shards": 100,
-  "pilot_manifest_sha256": "6fae613b3b35f978d86912aa0b705e9b319515be3744e601e34b839c5d18dd65"
+  "pilot_manifest_sha256": "b7013126cbfa633623a7646884c3c15b27951f68e40d5dff79e9078943b98f39",
+  "wave_1_manifest_shards": 10,
+  "wave_1_manifest_sha256": "2d8f10fb432d29fbf08de3e65330c72a79a1a99ad4cf1b6f4c5cf59327690385"
 }
