@@ -97,7 +97,7 @@ templates/
   base.html              # Base layout (dark theme, navigation)
   index.html             # Landing page with hero section
   browse.html            # Browse by address
-  search.html            # Upload & search
+  search.html             # Upload & search
   random.html            # Random image generation
   gallery.html           # Room/wall/shelf navigation
   explore.html           # Spatial exploration
@@ -114,12 +114,16 @@ static/
 
 This repository also hosts the **Million-Address Perpetual Adversarial Exposure Experiment**, a lawful public challenge involving a cryptographically committed corpus of one million Bitcoin `bc1q...` addresses.
 
-**Current directly readable public cohort: 1,100 unique addresses**
+**Current directly readable public cohort: 1,200 unique addresses**
 
 - [MAPAE research record and challenge rules](MAPAE/README.md)
 - [Tier Ω — 100 flagship public addresses](MAPAE/tier-omega-100.txt)
 - [Tier A — 1,000 public addresses in ten plain-text files](MAPAE/tier-a-public/)
+- [Host-a-Shard pilot protocol, manifests, registry and verifier](MAPAE/host-a-shard/)
+- [Host-a-Shard volunteer registration and assignment desk](../../issues/20)
 - [Canonical reporting and research thread](../../issues/15)
 - Canonical one-million-address SHA-256: `5bb9320bc93f07e3129cb6ef5aee4da2c245e0ca11279d4963244bead79a90df`
+
+The additional 100 addresses are the operator-controlled Host-a-Shard reference cycle. It proves the assignment, publication and byte-verification machinery, but does not count as an independent volunteer host.
 
 The MAPAE publication contains public Bitcoin addresses only. It contains no private keys, seeds, mnemonics, WIFs, entropy material, signing secrets, or recovery secrets.
